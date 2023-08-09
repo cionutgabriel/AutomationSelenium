@@ -5,6 +5,6 @@ Feature: Open page
     And Press button "Forms"
     And Press button "Login"
     And Complete field "Email" with value "admin@admin.com"
-    And Complete field "Password" with value "admin"
+    And Complete field "Password" with value "admin123"
     And Press button "Submit"
-   Then Close browser "Close browser"
+    Then Close browser "Close browser"
