@@ -26,13 +26,12 @@ public class Locatori {
 				return By.id("password");
 			case "Submit":
 				return By.id("submitLoginBtn");
-
-
-
-
-
-
-
+			case "Btn actions":
+				return By.id("actions");
+			case "Mouse hover":
+				return By.id("mouse-hover");
+			case "Hover over me":
+				return By.id("button-hover-over");
 
 
 
@@ -47,6 +46,7 @@ public class Locatori {
 				return By.id("email");
 			case "Password":
 				return By.id("password");
+
 
 
 

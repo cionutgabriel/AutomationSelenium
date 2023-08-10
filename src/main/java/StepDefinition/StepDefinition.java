@@ -4,10 +4,14 @@ import Utilities.ChromeConfig;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import static java.lang.Thread.sleep;
 
 public class StepDefinition {
 	ChromeDriver driver;
@@ -41,5 +45,19 @@ public class StepDefinition {
 	public void close_browser(String string) {
 		driver.quit();
 	}
+	@And("Hover over button {string}")
+	public void hover(String hoverButton) throws InterruptedException {
+		By buttonLocator = locatori.numeButon(hoverButton);
+		WebElement element = driver.findElement(buttonLocator);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).perform();
+		//Thread.sleep(5000);
+		String expectedText = "I am shown when someone hovers over the text above.";
+		String actualText = driver.findElement(By.xpath("/html/body/div/div/div[3]")).getText();
+		if (!expectedText.equals(actualText)) throw new AssertionError("Mesajul nu este corect/Nu sa facut hover");
+
+	}
+
+
 
 }
